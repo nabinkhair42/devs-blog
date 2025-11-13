@@ -1,0 +1,1 @@
+The blogging application for developers for writting and sharing their blogs online.
