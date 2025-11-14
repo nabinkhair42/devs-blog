@@ -1,5 +1,6 @@
-import { CopyButton } from "@/lib/markdown/copy-button";
+/** biome-ignore-all lint/security/noDangerouslySetInnerHtml: <explanation> */
 import { type BundledLanguage, codeToHtml } from "shiki";
+import { CopyButton } from "@/lib/markdown/copy-button";
 
 const THEMES = {
   light: "github-light-default",
@@ -69,13 +70,13 @@ function resolveLanguage(language?: string): HighlightLanguage {
     return FALLBACK_LANGUAGE;
   }
 
-  const normalised = language.toLowerCase();
+  const normalized = language.toLowerCase();
 
-  if (normalised in LANGUAGE_ALIASES) {
-    return LANGUAGE_ALIASES[normalised];
+  if (normalized in LANGUAGE_ALIASES) {
+    return LANGUAGE_ALIASES[normalized];
   }
 
-  return normalised as BundledLanguage;
+  return normalized as BundledLanguage;
 }
 
 function extractTitle(meta?: string | null): string | null {
@@ -128,7 +129,7 @@ export async function CodeBlock({ code, language, meta }: CodeBlockProps) {
         <span className="truncate">{displayLabel}</span>
         <CopyButton value={normalizedCode} />
       </figcaption>
-      <div className="shiki-container" dangerouslySetInnerHTML={{ __html: html }} />
+      <div className="p-2" dangerouslySetInnerHTML={{ __html: html }} />
     </figure>
   );
 }

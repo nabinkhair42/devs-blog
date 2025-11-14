@@ -1,7 +1,7 @@
-import { CodeBlock } from "@/lib/markdown/code-block";
-import { cn } from "@/lib/utils";
 import type { MDXComponents } from "mdx/types";
 import Image, { type ImageProps } from "next/image";
+import { CodeBlock } from "@/lib/markdown/code-block";
+import { cn } from "@/lib/utils";
 
 type CodeChild = {
   props: {
@@ -87,7 +87,7 @@ export function makeMDXComponents(components: MDXComponents): MDXComponents {
       <a className={cn("font-medium underline underline-offset-4", className)} {...props} />
     ),
     p: ({ className, ...props }: React.ComponentProps<"p">) => (
-      <p className={cn("leading-relaxed not-first:mt-6", className)} {...props} />
+      <p className={cn("leading-relaxed", className)} {...props} />
     ),
     strong: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
       <strong className={cn("font-medium", className)} {...props} />

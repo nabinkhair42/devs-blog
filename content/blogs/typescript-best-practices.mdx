@@ -1,0 +1,86 @@
+---
+title: TypeScript Best Practices for 2025
+description: Essential TypeScript patterns and practices to write better, more maintainable code.
+developerName: Nabin Khair
+date: 2025-11-11
+image: /blogs/typescript.png
+published: true
+---
+
+## Why TypeScript?
+
+TypeScript has become the de facto standard for building scalable JavaScript applications. Here's why it matters:
+
+- **Type Safety**: Catch errors before runtime
+- **Better IDE Support**: Autocomplete and refactoring
+- **Self-Documenting Code**: Types serve as documentation
+- **Easier Refactoring**: Confidence when making changes
+
+## Essential Patterns
+
+### 1. Use `unknown` Instead of `any`
+
+```typescript
+// ❌ Bad
+function processData(data: any) {
+  return data.value
+}
+
+// ✅ Good
+function processData(data: unknown) {
+  if (typeof data === 'object' && data !== null && 'value' in data) {
+    return (data as { value: string }).value
+  }
+  throw new Error('Invalid data')
+}
+```
+
+### 2. Leverage Type Inference
+
+```typescript
+// TypeScript can infer the return type
+function add(a: number, b: number) {
+  return a + b // inferred as number
+}
+```
+
+### 3. Use Discriminated Unions
+
+```typescript
+type Result<T> =
+  | { success: true; data: T }
+  | { success: false; error: string }
+
+function handleResult<T>(result: Result<T>) {
+  if (result.success) {
+    console.log(result.data)
+  } else {
+    console.error(result.error)
+  }
+}
+```
+
+## Advanced Tips
+
+### Const Assertions
+
+```typescript
+const config = {
+  apiUrl: 'https://api.example.com',
+  timeout: 5000,
+} as const
+
+// config.apiUrl is now type 'https://api.example.com', not string
+```
+
+### Generic Constraints
+
+```typescript
+function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+  return obj[key]
+}
+```
+
+## Conclusion
+
+TypeScript is a powerful tool that, when used correctly, can significantly improve your development experience and code quality. Start with these patterns and build from there!

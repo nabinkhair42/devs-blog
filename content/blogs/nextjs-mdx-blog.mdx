@@ -1,0 +1,64 @@
+---
+title: Building a Minimal Blog with Next.js and MDX
+description: Learn how to create a clean, minimal blogging platform using Next.js, MDX, and Tailwind CSS.
+developerName: Nabin Khair
+date: 2025-11-12
+image: /blogs/nextjs-mdx.png
+published: true
+---
+
+## Introduction
+
+In this post, we'll explore how to build a minimal, performant blog using modern web technologies. The goal is to create something that's simple, fast, and easy to maintain.
+
+## Why Next.js?
+
+Next.js provides an excellent foundation for a blog:
+
+- **Server-side rendering** for better SEO
+- **Static site generation** for lightning-fast pages
+- **File-based routing** for simplicity
+- **Built-in optimization** for images and fonts
+
+## MDX: The Best of Both Worlds
+
+MDX combines the simplicity of Markdown with the power of React components:
+
+```tsx
+import { CustomComponent } from './components'
+
+# Hello World
+
+<CustomComponent>
+  This is JSX inside Markdown!
+</CustomComponent>
+```
+
+## Key Features
+
+1. **Fast**: Static generation means instant page loads
+2. **Simple**: Write in Markdown, deploy anywhere
+3. **Flexible**: Add React components when needed
+4. **Minimal**: Clean design focused on content
+
+## Code Example
+
+Here's a simple React component:
+
+```javascript
+function BlogPost({ title, date, content }) {
+  return (
+    <article>
+      <h1>{title}</h1>
+      <time>{date}</time>
+      <div>{content}</div>
+    </article>
+  )
+}
+```
+
+## Conclusion
+
+Building a blog doesn't have to be complicated. With the right tools, you can create something beautiful and functional in no time.
+
+Happy coding! 🚀

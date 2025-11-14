@@ -1,15 +1,15 @@
 import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
+import path from "path";
 import readingTime from "reading-time";
 import remarkGfm from "remark-gfm";
 
-const contentDirectory = path.join(process.cwd(), "/blog-content");
+const contentDirectory = path.join(process.cwd(), "content", "blogs");
 
 export interface BlogFrontmatter {
   title: string;
   description: string;
-  developer: string;
+  developerName: string;
   date: string;
   image: string;
   published?: boolean;
